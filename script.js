@@ -86,11 +86,15 @@ Qual è il metodo migliore per clonare l’oggetto restaurant, e perché?
 utilizziamo structuredClone() perché restaurant contiene oggetti annidati (address) e un valore di tipo Date (openingDate). structuredClone() crea una deep copy avanzata assicurandosi che tutti gli oggetti interni siano copiati in modo indipendente e che l'oggetto Date venga mantenuto senza trasformarlo in stringa.
 
 🎯 Code Question 5 (Bonus)
+//1 oggetto
 const hamburger = { 
     name: "Cheese Burger", 
     weight: 250,
+
+    //2 oggetto
     maker: {
         name: "Anonymous Chef",
+        //3 oggetto
         restaurant: {
             name: "Hyur's Burgers",
             address: "Main Street, 123",
@@ -100,20 +104,24 @@ const hamburger = {
     }
 };
 ​
-const newRestaurant = {...hamburger.maker.restaurant};
-newRestaurant.name = "Hyur's II";
-newRestaurant.address = "Second Street, 12";
-const secondBurger = {...hamburger};
-secondBurger.maker.restaurant = newRestaurant;
-secondBurger.maker.name = "Chef Hyur";
+const newRestaurant = {...hamburger.maker.restaurant}; // 4 oggetto
+newRestaurant.name = "Hyur's II"; //cambio il nome dell oggetto newRestaurant
+newRestaurant.address = "Second Street, 12"; //cambio l'indirizzo dell oggetto newRestaurant
+
+const secondBurger = {...hamburger}; //5 oggetto (shallow copy)
+
+secondBurger.maker.restaurant = newRestaurant; //copy reference 
+
+secondBurger.maker.name = "Chef Hyur"; // cambio il nome dell oggetto maker
 ​
 console.log(hamburger.maker.name); // "Chef Hyur"
 console.log(secondBurger.maker.name); // "Chef Hyur"
-console.log(hamburger.maker.restaurant.name); // "Hyur's Burgers"
+console.log(hamburger.maker.restaurant.name); // "Hyur's II"
 console.log(secondBurger.maker.restaurant.name); // "Hyur's II"
 Senza lanciare il codice, riesci a prevedere cosa viene stampato in console?
+
 Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice?
-2 objects: secondBurger, newRestaurant
+Abbiamo 5 objects in totale.
 
 🎯 Code Question 6 (Bonus)
 const chef = {

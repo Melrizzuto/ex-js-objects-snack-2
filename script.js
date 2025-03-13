@@ -30,7 +30,7 @@ P.S.: Ricordati che gli Array, come gli oggetti, sono dei Reference Type (Tipi d
 
 
 Senza lanciare il codice, riesci a prevedere cosa viene stampato in console?
-console.log(hamburger.ingredients[0]); //"Cheese"
+console.log(hamburger.ingredients[0]); //"Salad"
 console.log(secondBurger.ingredients[0]); // "Salad"
 Quanti oggetti sono stati creati in memoria durante l'esecuzione di questo codice?
 2 objects

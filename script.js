@@ -146,7 +146,10 @@ const chef = {
     }
 }
 Qual è il metodo migliore per clonare l’oggetto chef, e perché?
-utilizziamo structuredClone() perché è il metodo moderno per clonare oggetti con oggetti annidati.
+spread operator copia i metodi ma non possiamo usarlo perchè ci sono oggetti annidati,
+non possiamo utilizzare JSON.parse(JSON.stringify()) e structuredClone() perchè non si portano dietro i metodi.
+Quindi nessuno dei 3.
+
 
 
 🎯 Snack  (Bonus)
